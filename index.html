@@ -1,31 +1,333 @@
-<button id="btn" onclick="revelar()">
-    ✨ Descubrir el remitente ✨
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Querida Familia Bobadilla</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:linear-gradient(180deg,#F9F1C9,#F2E2A7,#EAD49B);
+
+    font-family:Georgia,serif;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:30px;
+
+}
+
+.card{
+
+    width:100%;
+
+    max-width:950px;
+
+    background:#FFFDF6;
+
+    border:3px solid #D5A021;
+
+    border-radius:35px;
+
+    padding:60px;
+
+    box-shadow:0px 15px 40px rgba(90,60,20,.20);
+
+}
+
+.decoracion{
+
+    text-align:center;
+
+    color:#D59600;
+
+    font-size:34px;
+
+    margin-bottom:25px;
+
+}
+
+h1{
+
+    text-align:center;
+
+    color:#B97800;
+
+    font-size:58px;
+
+    font-style:italic;
+
+    margin-bottom:35px;
+
+}
+
+p{
+
+    color:#654321;
+
+    font-size:30px;
+
+    text-align:center;
+
+    line-height:1.8;
+
+    margin-bottom:28px;
+
+}
+
+.att{
+
+    font-weight:bold;
+
+    font-size:34px;
+
+    margin-top:15px;
+
+}
+
+button{
+
+    display:block;
+
+    margin:auto;
+
+    margin-top:35px;
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(90deg,#E6C04B,#D79D00);
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:scale(1.05);
+
+}
+
+#firma{
+
+    display:none;
+
+    text-align:center;
+
+    margin-top:35px;
+
+    font-size:55px;
+
+    font-weight:bold;
+
+    color:#B26A00;
+
+    animation:aparecer 1s ease;
+
+}
+
+@keyframes aparecer{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+footer{
+
+    margin-top:30px;
+
+    text-align:center;
+
+    color:#D59600;
+
+    font-size:34px;
+
+}
+
+@media(max-width:700px){
+
+.card{
+
+padding:30px;
+
+}
+
+h1{
+
+font-size:42px;
+
+}
+
+p{
+
+font-size:22px;
+
+}
+
+#firma{
+
+font-size:38px;
+
+}
+
+button{
+
+font-size:20px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="decoracion">
+
+☀️ ── ☀️ ☀️ ☀️ ── ☀️
+
+</div>
+
+<h1>
+
+¡Querida Familia Bobadilla!
+
+</h1>
+
+<p>
+
+Estoy muy feliz de llegar a esta familia, de seres tan hermosos.
+
+Gracias por el amor con el que me esperan; lo siento todos los días,
+
+a cada instante.
+
+</p>
+
+<p>
+
+Mis papás me hablan mucho de ustedes; del amor con el que los
+
+abuelos Lucila y Enoc tejieron una familia honesta,
+
+solidaria, amorosa y de buen sentido del humor...
+
+Lo siento en cada reunión, con sus carcajadas
+
+y desparpajo; amo mucho eso.
+
+</p>
+
+<p>
+
+Me sueño junto a ustedes,
+
+escuchando sus historias,
+
+riendo a carcajadas
+
+y jugando con Isa, Emi, Max, Emma, Silvi
+
+y las demás almitas que, como la mía,
+
+elijan llegar a esta hermosa familia
+
+y prolongar su existencia.
+
+</p>
+
+<p>
+
+Nos veremos pronto, familia.
+
+</p>
+
+<p>
+
+¡Les amo, desde siempre!
+
+</p>
+
+<p class="att">
+
+Att.
+
+</p>
+
+<button id="boton" onclick="mostrarRemitente()">
+
+💛 Haz clic para revelar el remitente 💛
+
 </button>
 
-<div id="firma" style="display:none;">
-    💛 Con mucho amor,<br><br>
-    <span style="font-size:60px;">Su sobrina/prima</span>
+<div id="firma">
+
+✨ SU SOBRINA / PRIMA ✨
+
+</div>
+
+<footer>
+
+☀️ ── ☀️ ☀️ ☀️ ── ☀️
+
+</footer>
+
 </div>
 
 <script>
-function revelar() {
-    const firma = document.getElementById("firma");
-    const boton = document.getElementById("btn");
 
-    firma.style.display = "block";
-    firma.animate(
-        [
-            { opacity: 0, transform: "scale(0.8)" },
-            { opacity: 1, transform: "scale(1)" }
-        ],
-        {
-            duration: 800,
-            easing: "ease-out",
-            fill: "forwards"
-        }
-    );
+function mostrarRemitente(){
 
-    boton.disabled = true;
-    boton.innerHTML = "💖 Remitente revelado 💖";
+    document.getElementById("firma").style.display="block";
+
+    document.getElementById("boton").style.display="none";
+
 }
+
 </script>
+
+</body>
+
+</html>
