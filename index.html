@@ -1,0 +1,31 @@
+<button id="btn" onclick="revelar()">
+    ✨ Descubrir el remitente ✨
+</button>
+
+<div id="firma" style="display:none;">
+    💛 Con mucho amor,<br><br>
+    <span style="font-size:60px;">Su sobrina/prima</span>
+</div>
+
+<script>
+function revelar() {
+    const firma = document.getElementById("firma");
+    const boton = document.getElementById("btn");
+
+    firma.style.display = "block";
+    firma.animate(
+        [
+            { opacity: 0, transform: "scale(0.8)" },
+            { opacity: 1, transform: "scale(1)" }
+        ],
+        {
+            duration: 800,
+            easing: "ease-out",
+            fill: "forwards"
+        }
+    );
+
+    boton.disabled = true;
+    boton.innerHTML = "💖 Remitente revelado 💖";
+}
+</script>
